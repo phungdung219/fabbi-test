@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-const orderForm = defineModel()
+import { IOrderForm } from '@/types';
 
+const orderForm = defineModel<IOrderForm>();
+function capitalizeFirstLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 </script>
 
 <template>
-  <div class="">
+  <div>
     <div class="flex gap-4 mb-4">
       <div class=" label-primary w-1/3">Meal</div>
-      <div class="">{{orderForm.mealCategory}}</div>
+      <div class="">{{capitalizeFirstLetter(orderForm.mealCategory)}}</div>
     </div>
     <div class="flex gap-4 mb-4">
       <div class=" label-primary w-1/3">No. of People</div>

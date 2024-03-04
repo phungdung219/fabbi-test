@@ -5,7 +5,6 @@ import PreOrderForm from '../components/PreOrderForm.vue'
 
 <template>
   <main>
-    <h1>Pre-Order Form</h1>
     <PreOrderForm></PreOrderForm>
   </main>
 </template>

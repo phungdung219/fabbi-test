@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-const orderForm = defineModel()
+import { defineModel } from 'vue';
+import { IOrderForm } from '@/types';
+
+const orderForm = defineModel<IOrderForm>();
 
 </script>
 
@@ -14,11 +16,9 @@ const orderForm = defineModel()
         <option value="dinner">Dinner</option>
       </select>
     </div>
-    <!-- <span v-if="step1Error" class="error">{{ step1Error }}</span> -->
     <div class="row-start-1 col-start-1">
       <label class=" label-primary">Please enter number of people (max 10)</label>
       <input type="number" v-model="orderForm.numberOfPeople" max="10" class="number-input-primary">
-      <!-- <span v-if="step1Error" class="error">{{ step1Error }}</span> -->
     </div>
   </div>
 </template>

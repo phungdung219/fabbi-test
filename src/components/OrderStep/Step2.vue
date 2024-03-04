@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-const orderForm = defineModel()
+import { defineModel, ref } from 'vue';
+import { IOrderForm } from '@/types';
+
+const orderForm = defineModel<IOrderForm>();
 const props = defineProps({
   filteredRestaurants: { type: Array, required: true },
+  error: { type: String, required: false }
 })
 </script>
 
@@ -10,10 +13,10 @@ const props = defineProps({
   <div>
     <label class="label-primary">Select Restaurant:</label>
     <select v-model="orderForm.selectedRestaurant"  class="select-input-primary">
-      <option v-for="restaurant in props.filteredRestaurants" :key="restaurant" :value="restaurant">
+      <option v-for="restaurant in props.filteredRestaurants" :value="restaurant">
         {{ restaurant }}
       </option>
     </select>
-    <!-- <span v-if="step2Error" class="error">{{ step2Error }}</span> -->
+    <span v-if="props.error" class="text-red-500">{{ props.error }}</span>
   </div>
 </template>
