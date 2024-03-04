@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .select-input-primary {
+    @apply block h-10 w-48 p-2 border border-gray-300 rounded-md;
+  }
+  .number-input-primary {
+    @apply block h-10 w-16 p-2 border border-gray-300 rounded-md;
+  }
+  .label-primary {
+    @apply block text-lg font-bold mb-2;
+  }
+}
