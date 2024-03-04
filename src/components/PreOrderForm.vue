@@ -1,5 +1,5 @@
 
-<script async setup lang="ts">
+<script setup lang="ts">
 import { ref,reactive, computed,watch } from 'vue';
 import { dishes } from '../../data/dishes.json';
 import { IOrderForm } from '@/types';
