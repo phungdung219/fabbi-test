@@ -24,9 +24,12 @@ const removeDish = (index:number)=> {
 
 <template>
   <div>
-    <div v-for="(item, index) in orderForm.selectedDishes" :key="index" class="flex gap-4 items-center ">
+    <div class="flex gap-6 items-center">
+      <label class="label-primary w-48">Please select a dish</label>
+      <label class="label-primary">Please enter number</label>
+    </div>
+    <div v-for="(item, index) in orderForm.selectedDishes" :key="index" class="flex gap-6 items-center mb-4">
       <div>
-        <label class="label-primary">Please select a dish</label>
         <select v-model="item.selectedDish" class="select-input-primary">
           <option v-for="dish in props.filteredDishes" :key="dish.id" :value="dish.name" :disabled="orderForm.selectedDishes.some(selected => selected.selectedDish === dish.name)">
             {{ dish.name }}
@@ -34,7 +37,6 @@ const removeDish = (index:number)=> {
         </select>
       </div>
       <div>
-        <label class="label-primary">Please enter number</label>
         <input type="number" v-model="item.numberOfServings" min="1" class="number-input-primary" >
       </div>
       <button @click="removeDish(index)" class="bg-red-500 text-white px-2 rounded ">x</button>

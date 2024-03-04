@@ -47,10 +47,18 @@ const resetSelectedDishes = ()=>{
     }
   ]
 }
+const resetSelectedRestaurant = ()=>{
+  orderForm.selectedRestaurant = null
+}
+
+watch(filteredRestaurants, () => {
+  resetSelectedRestaurant()
+},{immediate: true})
 
 watch(filteredDishes, () => {
   resetSelectedDishes()
-},{ deep: true })
+},{immediate: true})
+
 
 // Validate
 const error = ref('');
@@ -107,15 +115,18 @@ const submitOrder = () => {
         :class="{'bg-blue-500 text-white': step  <= currentStep}"
       >{{ step === 4 ? 'Review' : step }}</div>
     </div>
-    <KeepAlive>
-      <component 
-        :is="steps[currentStep]" 
-        v-model="orderForm"
-        :filteredRestaurants="filteredRestaurants"
-        :filteredDishes="filteredDishes"
-        :error="error"
-      ></component>
-    </KeepAlive>
+    <!--Steps-->
+    <div class="px-4">
+      <KeepAlive>
+        <component 
+          :is="steps[currentStep]" 
+          v-model="orderForm"
+          :filteredRestaurants="filteredRestaurants"
+          :filteredDishes="filteredDishes"
+          :error="error"
+        ></component>
+      </KeepAlive>
+    </div>
     <!--Footer-->
     <footer class="absolute bottom-4 flex flex-row-reverse justify-between left-4 right-4">
       <button v-if="currentStep < 4" @click="nextStep" class="bg-blue-500 text-white px-4 py-2 rounded">Next</button>
