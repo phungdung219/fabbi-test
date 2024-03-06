@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IOrderForm, IDishes } from '@/types';
+import { type IOrderForm, IDishes } from '@/types';
 
 const orderForm = defineModel<IOrderForm>();
 

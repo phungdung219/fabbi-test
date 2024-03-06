@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineModel } from 'vue';
-import { IOrderForm } from '@/types';
+import { type IOrderForm } from '@/types';
 
 const orderForm = defineModel<IOrderForm>();
 

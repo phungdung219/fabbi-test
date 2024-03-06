@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import { ref,reactive, computed,watch } from 'vue';
 import { dishes } from '../../data/dishes.json';
-import { IOrderForm } from '@/types';
+import { type IOrderForm } from '@/types';
 
 import Step1 from './OrderStep/Step1.vue';
 import Step2 from './OrderStep/Step2.vue';
